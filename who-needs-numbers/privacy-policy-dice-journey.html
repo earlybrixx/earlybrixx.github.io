@@ -106,8 +106,8 @@
   <h1 id="page-title">Privacy Policy – Cubie Twist</h1>
 
   <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('en')">English</button>
-    <button class="lang-btn" onclick="setLang('de')">Deutsch</button>
+    <button class="lang-btn active" onclick="setLang('en', this)">English</button>
+    <button class="lang-btn" onclick="setLang('de', this)">Deutsch</button>
   </div>
 
   <!-- ENGLISH -->
@@ -321,13 +321,13 @@
   </div>
 
   <script>
-    function setLang(lang) {
+    function setLang(lang, btn) {
       document.getElementById('content-en').classList.remove('visible');
       document.getElementById('content-de').classList.remove('visible');
       document.getElementById('content-' + lang).classList.add('visible');
 
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
       document.getElementById('page-title').textContent =
         lang === 'en'
